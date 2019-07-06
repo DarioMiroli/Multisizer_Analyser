@@ -1,0 +1,61 @@
+Multisizer	11:36  12 Mar 2019
+File name:	L50_Conc_17.#m4
+File ID:	L50_Conc
+Sample ID:	L50_Conc
+Control mode:	Volumetric,  55  uL
+Acquired:	11:35  12 Mar 2019
+Size bins:	400
+From	4.400
+To	5.700
+Sizing threshold:	0.600
+Total pulses:	1894
+Counting threshold:	0.600
+Counts above threshold:	1894
+Coincidence corrected:	1914
+
+From	4.400
+To	5.700
+Number 	1262
+Mean:	4.917
+Median:	4.909
+D(0,0):	4.916
+Mean/Median ratio:	1.002
+Mode:	4.876
+95% Conf. Limits:	4.912
+95% Conf. Limits:	4.923
+S.D.:	0.0986
+Variance:	0.00971
+C.V.:	2.004
+Skewness:	0.798
+Kurtosis:	3.583
+d10:	4.803
+d50:	4.909
+d90:	5.033
+Specific Surf. Area:	12192
+
+% <	Size 
+10	4.803
+25	4.856
+50	4.909
+75	4.973
+90	5.033
+
+% >	Size 
+10	5.033
+25	4.973
+50	4.909
+75	4.856
+90	4.803
+
+Size 	% <
+1	0
+10	100
+100	100
+1000	100
+
+Size 	% >
+1	100
+10	0
+100	0
+1000	0
+

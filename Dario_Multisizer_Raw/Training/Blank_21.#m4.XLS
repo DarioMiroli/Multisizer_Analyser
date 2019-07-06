@@ -1,0 +1,61 @@
+Multisizer	12:06  12 Mar 2019
+File name:	Blank_21.#m4
+File ID:	Blank
+Sample ID:	BLank
+Control mode:	Volumetric,  50  uL
+Acquired:	12:05  12 Mar 2019
+Size bins:	400
+From	0.600
+To	18.00
+Sizing threshold:	0.600
+Total pulses:	274
+Counting threshold:	0.600
+Counts above threshold:	274
+Coincidence corrected:	274
+
+From	0.600
+To	18.00
+Number 	267.0
+Mean:	0.894
+Median:	0.800
+D(0,0):	0.854
+Mean/Median ratio:	1.118
+Mode:	0.739
+95% Conf. Limits:	0.856
+95% Conf. Limits:	0.933
+S.D.:	0.321
+Variance:	0.103
+C.V.:	35.85
+Skewness:	2.518
+Kurtosis:	7.882
+d10:	0.624
+d50:	0.800
+d90:	1.255
+Specific Surf. Area:	50427
+
+% <	Size 
+10	0.624
+25	0.706
+50	0.800
+75	0.960
+90	1.255
+
+% >	Size 
+10	1.255
+25	0.960
+50	0.800
+75	0.706
+90	0.624
+
+Size 	% <
+1	78.7
+10	100
+100	100
+1000	100
+
+Size 	% >
+1	21.3
+10	0
+100	0
+1000	0
+

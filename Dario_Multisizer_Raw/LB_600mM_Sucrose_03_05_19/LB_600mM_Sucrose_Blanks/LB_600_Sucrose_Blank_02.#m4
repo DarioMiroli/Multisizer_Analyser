@@ -1,0 +1,2510 @@
+[common]
+Program=Beckman Coulter Multisizer
+CPName=ANSI code page 1252 Latin 1 (US, Western Europe)
+SavePC=Version 4.03    15 Jan 2014
+VersionMajorPC= 4
+VersionMinorPC= 3
+VersionExperPC= 0
+ftype= 300  Multisizer data
+Format= 300
+MType= 4
+multtype= 110
+Filename=LB_600_Sucrose_Blank_02.#m4
+Pathname=C:\Users\Demo\Desktop\Dario_Multisizer\LB_600mM_Sucrose_03_05_19\LB_600mM_Sucrose_Blanks\LB_600_Sucrose_Blank_02.#m4
+Import=
+Export=C:\Users\Demo\Desktop\Dario_Multisizer\LB_600mM_Sucrose_03_05_19\LB_600mM_Sucrose_Blanks\LB_600_Sucrose_Blank_02.#m4.XLS
+Saved= 1556893984  15:33:04   3 May 2019
+ReSaved= 0  
+SavedTZ= -60,GMT Daylight Time
+ReSavedTZ= -60,GMT Daylight Time
+Comment1=
+Operator=Dario
+BarCode=
+RunNum= 2
+[#Saves]
+ 1556893984  15:33   3 May 2019
+ 0  
+[#SaveFlags]
+ 262144
+ 0
+[Save0]
+Pathname=C:\Users\Demo\Desktop\Dario_Multisizer\LB_600mM_Sucrose_03_05_19\LB_600mM_Sucrose_Blanks\LB_600_Sucrose_Blank_02.#m4
+Time= 1556893984  15:33:04   3 May 2019
+TZ= -60,GMT Daylight Time
+Flags= 262144
+LoginName=
+RealName=
+ID=
+a= 1
+b= 0
+c= 16
+User=Demo
+Computer=MERITICSLAPTOP
+WinVer=6.1
+DosVer=29.177
+Comment=
+CPName=ANSI code page 1252 Latin 1 (US, Western Europe)
+[SIsave0]
+Comment1=
+Operator=Dario
+GroupID=LB_600_Sucrose_Blank
+SampleID=LB_600_Sucrose_BLank
+BarCode=
+IsControl= 0
+Density= 0
+RunNumber= 2
+Shape= 0
+Electro=LB_600mM_Sucrose
+Disperse=None
+Var1= 0
+Var2= 0
+MassC= 0
+DilF= 0
+UseDilF= 0
+PreDilF= 0
+UsePreDilF= 0
+SampleVol= 0.05
+ElectroVol= 20
+Valid= 0
+[CPsave0]
+PBins= 400
+PGeo= 0
+PVol= 1
+PMinDiam= 0.599828
+PMaxDiam= 2.67301
+PUnits= 4204
+PMnWd= 0
+PMxWd= 88
+PMnRt= 0
+PMxRt= 10
+PMnGn= 0
+PMxGn= 7
+PSmr= 1
+PEdit= 0
+PCCorr= 1
+PM2Edit= 1
+WidthEdit= 0
+PulseEdit= 0
+MinPulse= 0
+MaxPulse= 0
+RecentEdit= 0
+RecentTimeSec= 0
+UseScaleFactor= 0
+ScaleFactor= 1
+Valid= 0
+[SPsave0]
+MinSize= 0.113
+MaxSize= 10
+XScale=72, 0, 0, 0
+YScale=1, 0, 0, 1
+Geometric= 0
+Valid= 0
+[SSsave0]
+Mean= 0, 0, 0
+Median= 0, 0, 0
+Mode= 0, 0, 0
+SD= 0, 0, 0
+D10= 0, 0, 0
+D90= 0, 0, 0
+NumMl= 0, 0, 0
+UseMean= 0
+UseMedian= 0
+UseMode= 0
+UseSD= 0
+UseD10= 0
+UseD90= 0
+UseNumMl= 0
+GeomStats= 0
+XUnits= 70
+YUnits= 1
+UseRange= 0
+MinDiam= 0
+MaxDiam= 0
+Comment1=
+Filename=
+Valid= 1
+[KDsave0]
+Kd= 38.954
+[sample]
+GroupID=LB_600_Sucrose_Blank
+SampleID=LB_600_Sucrose_BLank
+Shape= 0
+[instrument]
+nBins= 400
+nTrend= 0
+nPulses= 83
+nTimeStamps= 107
+PeaksRemoved= 0
+nPConv= 42
+nAdded= 0
+PBins= 400
+PGeo= 0
+PVol= 1
+PMinDiam= 0.599828
+PMaxDiam= 2.67301
+PUnits= 4204
+PMnWd= 0
+PMxWd= 88
+PMnRt= 0
+PMxRt= 10
+PMnGn= 0
+PMxGn= 7
+PSmr= 1
+PEdit= 0
+PCCorr= 1
+PM2Edit= 1
+WidthEdit= 0
+PulseEdit= 0
+MinPulse= 0
+MaxPulse= 0
+RecentEdit= 0
+RecentTimeSec= 0
+UseScaleFactor= 0
+ScaleFactor= 1
+Bigs= 0
+Smalls= 0
+Goods= 83
+RawGT60= 0
+oSpace= 0
+Serial=
+StartTime= 1556893947  15:32:27   3 May 2019
+StartTZ= -60,GMT Daylight Time
+Electro=LB_600mM_Sucrose
+Disperse=None
+AcqVersion=Version 4.03    15 Jan 2014
+CPVersion=Version 4.03    15 Jan 2014
+Var1= 0
+Var2= 0
+Current= 600
+Resistance= 100
+VperA= 100000
+CperV= 838861
+Aperture= 30
+OrfLen= 0
+Gain= 4
+SumNoise= 3
+nNoise= 2
+MaxHtCorr= -124
+WdthErrs= 0
+MassC= 0
+Kd= 38.954
+DilF= 0
+UseDilF= 0
+PreDilF= 0
+UsePreDilF= 0
+SizeStd= 0
+SizeStdU= 0
+Edit= 0
+Control= 3
+Time= 21.27
+Count= 100
+Day= 0
+Month= 0
+Year= 0
+FSample= 0
+Fleft= 0
+Fright= 0
+NSample= 0
+Nleft= 0
+Nright= 0
+WSample= 0
+Wleft= 0
+Wright= 0
+M3leftum= 0.113
+M34rightum= 10
+M34Cursors= 0
+Cal= 0
+bct= 0
+ASetup= 0
+Blank= 0
+CurGain= 0
+Polarity= 0
+TotCount= 25000
+AScale= 0
+CoinCorr= 0
+RawCount= -1
+MinRaw= 0
+MaxRaw= 0
+CCCount= -1
+MinCC= 0
+MaxCC= 0
+AvgSig= 0
+MinSig= 0
+MaxSig= 0
+MinKd= 0
+AvgKd= 0
+MaxKd= 0
+SampleVol= 0.05
+ElectroVol= 20
+AnalyticVol= 50
+ManoVol= 50
+rDensity= 0
+sDensity= 0
+TimeSec= 20
+logscale= 0
+Extrap= 0
+Page= 0
+Full= 0
+Narrow= 0
+Edited= 0
+IsControl= 0
+ControlTm= 0  
+CalTm= 0  
+CalDiam= 0
+EndTm= 1556893984  15:33:04   3 May 2019
+Pauses= 0
+Resumes= 0
+Conts= 0
+RSFile=
+RSMod= 1
+PrefFile=C:\Multisizer4e\SOP\Default.prf
+PrefMod= 0
+SOPFile=
+CurRun= 2
+NumRuns= 4
+CalLot=
+CalExpY= 0
+CalExpM= 0
+CalExpD= 0
+CalRuns= 0
+CalByMean= 0
+CalByVolume= 0
+CalOldKd= 0
+ConcTm= 0  
+ConcAssay= 0
+SOPName=
+SOPSaved= 0  
+SOPLoaded= 0  
+SOPSOMName=
+SOPSOMSaved= 0  
+SOPPrefName=
+SOPPrefSaved= 0  
+SOPComment=
+SOPAuthor=
+SOPLockPrefs= 0
+[SampleStats]
+Mean= 0, 0, 0
+Median= 0, 0, 0
+Mode= 0, 0, 0
+SD= 0, 0, 0
+D10= 0, 0, 0
+D90= 0, 0, 0
+NumMl= 0, 0, 0
+UseMean= 0
+UseMedian= 0
+UseMode= 0
+UseSD= 0
+UseD10= 0
+UseD90= 0
+UseNumMl= 0
+GeomStats= 0
+XUnits= 70
+YUnits= 1
+UseRange= 0
+MinDiam= 0
+MaxDiam= 0
+Comment1=
+Filename=
+Valid= 1
+[M3Info]
+SOMAuthor=Erol
+SOMDescript=Erol Training
+SampleDescript=
+RState= 12
+ApDiam= 30
+ApSerial= 0
+MaxCellVol= 0
+ApComm= 
+Kd= 38.954
+Threshum= 0.5998
+NoiseThum= 0.5716
+RwNoiseThum= 0.6455
+NoiseTm= 1556893827
+CntLvlum= 0.5998
+MrkSpLum= 0
+ZMrkSpLum= 0.5998
+Current= 600
+MeaCur= 0
+MeaVol= 0
+PrGain= 2
+Pol= 0
+Thresh= 1231
+StSpd= 0
+TmBs= 1000
+CType= 2
+TimeSec= 20
+Volume= 50
+ChCount= 100
+TCount= 25000
+AnVol= 0
+MinWd= 24
+MaxWd= 30000
+CntLvl= 1231
+MrkSpL= 0
+TPkEnable= 0
+TPkRng= 0
+TPkHt= 1000
+RnBEmp= 100
+StrtMode= 0
+MxStrtDly= 0
+StrtDly= 0
+TPkPAN= 1
+PnEn= 1
+PrEn= 1
+PPMEn= 1
+SetPr= 11758
+PPCoef= 1500
+ICoef= 0
+ILim= 999999
+RstV= 0
+InPmpSpd= -30000
+OutPmpSpd= 10000
+BagPr= 11758
+Count= 83
+CCCount= 83
+ZCount= 83
+ZCCCount= 83
+Noise= 0
+Pressure= 11802
+StirSpd= 0
+StrtTm= 1385240591
+EndTm= 1385262108
+TDBytes= 1162
+MCLo= 17589
+SCLo= 1.2676e+008
+Conc= 0
+NrPC= 32768
+WdPC= 0
+CurOfst= 0
+GnStage= 0
+PmpTh= 0
+PmpC1= 0
+PmpC2= 0
+PmpD= 0
+VperA= 100000
+CperV= 838861
+VacPr= 11744
+Of4096= 720
+Of1024= 717
+Of256= 714
+Of64= 721
+Of16= 720
+Of4= 719
+Of1= 722
+Of025= 714
+PPos= 0
+CalPer= 60
+CalTemp= 3
+TPkW= 30
+TPkRt= 3000
+RegPos= 0
+RegPer= 10
+SPPsia= 1300
+SampkHz= 6000
+SProg= 0
+MxHC= -124
+MxSS= 100
+BgPFull= 29
+BgSVol= 746
+CalSz= 5045
+BgTop= 1547
+BgBot= 1219
+ELive= 0
+DrSnsErr= 0
+DbgEn= 0
+LastCC= 1000
+ApLen= 75
+ApSerNo= 0
+MainTemp= 27
+AnaTemp= 37
+StMainTemp= 27
+StAnaTemp= 37
+F1St= 1
+F2St= 0
+LmpSt= 1
+StirSt= 0
+UseStirrer= 0
+PlatUp= 1
+DrClsd= 1
+Spl1= 1
+Spl2= 0
+DilJrPr= 1
+DilJrLvl= 0
+WstJrPr= 1
+WstJrLvl= 0
+MPHome= 1
+MPAway= 0
+A5V= 4993
+AM5v= -5047
+A15V= 14944
+AM15V= -14900
+D5V= 4984
+D24V= 23922
+LampV= 1474
+A0V= 0
+CurEn= 3
+AutAdj= 0
+SSCorr= -6
+VacPmpSt= 1
+V1= 0
+V2= 0
+V3= 0
+V4= 0
+V5= 0
+V6= 1
+V7= 1
+V8= 0
+V9= 0
+CurSwSt= 0
+MPP= 0
+MdHtTh= 20000
+Rev=2.00.66
+BldTm=15:15:19
+BldDt=Apr  4 2016
+ERunTm= 21270
+NoiThrsh= 636
+RwNoiThrsh= 916
+Vr2= 0
+Vr3= 0
+PltSenEn= 1
+DrSenEn= 1
+SSEn1= 0
+SSEn2= 1
+DJrEn= 1
+WJrEn= 1
+DiStBk= 500
+StpCkDly= 20
+RnTCode= 0
+Flow= 2341
+HwConf= 776
+FPGA= 800
+StAddr= 0
+MinFlw= 2100
+MaxFlw= 5075
+MaxEngy= 3645
+TotSTm= 6000
+PFlSTm= 0
+FillTm= 9000
+FlshTm= 4000
+DrainTm= 4000
+SerNo=
+MtrPrg= 50
+RnsSBE= 29
+TmBOMsrd= 0
+PrssTol= 97
+MaxApR= 100000
+ChkSmplLvlCur= 500
+ChkSmplLvlEn= 1
+RMsrCur= 100
+ChkCurEn= 1
+MaxSupV= 186
+DTPct= 60
+DTPctEn= 0
+DTRnsEn= 1
+OffsetsEn= 0
+spare3= 0
+ZCount= 83
+ZMarks= 13676
+ZSpaces= 1.26738e+008
+ZLevel= 1231
+MinHt= 992
+ZMinHt= 992
+WidthSF= 1
+NMMax= 2372
+NMMean= 124
+NMSD= 1261
+NMORC= 1
+NMCount= 58669
+Save= 1
+UseRunDir= 1
+RunDir=C:\Users\Demo\Desktop\Dario_Multisizer\LB_600mM_Sucrose_03_05_19\LB_600mM_Sucrose_Blanks
+SavePulses= 1
+Average= 0
+PrintAvg= 0
+Print= 0
+Export= 1
+NumRuns= 4
+Wait= 0
+AutoFlush= 0
+AutoFlushBefore= 0
+EnterSampleInfo= 1
+CompSampleSpecs= 0
+GoIfGood= 0
+Electro=LB_600mM_Sucrose
+Disperse=None
+LastCert= 0  
+NextCert= 0  
+LastReminderTm= 0  
+LastReminderDays= 0
+ReminderCnt= 0
+LastReminderID= 0
+CalPeriod2= 500
+LastCal= 1556879389  11:29:49   3 May 2019
+AnalyticVol= 50
+Continuous= 0
+ContMax= 0
+MeaZero= 1
+IPAddr=192.168.255.2
+PrRnSlots= 184
+PrRn_ul= 48
+PrRn_ms= 6010
+M4StirSpd= 51
+M4DesStirSpd= 51
+M4Beaker= 4
+M4BkrID=
+M4StrPosMode= 2
+M4SPosActual= 3626
+M4SPosAvg= 3628
+M4SPosAvgDeg= -36.6435
+M4SPosDesiredDeg= -50
+M4_SPosManual= 0
+DefRnSpc= 0
+dpctf= 60
+wpctf= 65
+DisableKeypad= 0
+KeyPadUsed= 0
+SamSameDil= 0
+DilElectro=
+DilLotNum=
+DilExpDate=
+DilOpnDate=
+SamElectro=
+SamLotNum=
+SamExpDate=
+SamOpnDate=
+lFillTm= 1556893780
+lFlushTm= 1556724982
+lUnblockTm= 1556892847
+lEmptyTm= 1556624441
+lDrainTm= 1556892859
+lPurgeTm= 1551696280
+lAdjustTm= 1556893856
+lChangeApTm= 1554226743
+WJarFull= 0
+ApHiRes= 0
+SzRng= 0
+WarnIf60= 0
+Warn60pct= 0
+Warn60num= 0
+CalLot=
+CalExpY= 0
+CalExpM= 0
+CalExpD= 0
+CalRuns= 1
+[BlockDetect]
+DetectMode= 0
+DetectAction= 1
+MaxRetrys= 4
+MinSec= 4
+UseFlowAbs= 0
+UseFlowDelta= 0
+UseCountsAbs= 0
+UseCountsDelta= 0
+UseConcAbs= 0
+UseApOhmsAbs= 0
+UseApOhmsDelta= 0
+FlowNominal= 3.4
+FlowMin= 2.21
+FlowMax= 4.93
+FlowDelta= 35
+CountsNominal= 1000
+CountsMin= 405
+CountsMax= 1595
+CountsDelta= 40
+ConcMax= 20
+ApOhmsNominal= 53
+ApOhmsMin= 42.4
+ApOhmsMax= 63.6
+ApOhmsDelta= 40
+ShowIcon= 0
+RefRun=
+[BlockMonitor]
+ScopeYScale= 0
+MinAutoYScale= 30
+MonitorData= 0
+FlowManual= 0
+FlowMin= 0
+FlowMax= 2
+CPSManual= 0
+CPSMin= 0
+CPSMax= 1000
+ConcManual= 0
+ConcMin= 0
+ConcMax= 12
+ApOhmsNominal= 0
+AVDManual= 0
+AVDMin= 0
+AVDMax= 10
+[BlkRunInfo]
+ITime= 0
+IFlow= 0
+ICPS= 0
+IKOhms= 0
+Babs= 0
+Bdelta= 0
+BlkCause= 0
+[#Extra]
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+[#Bindiam]
+0.599828
+0.640713
+0.676956
+0.709685
+0.739645
+0.767357
+0.793201
+0.817461
+0.840362
+0.862077
+0.882751
+0.902499
+0.921419
+0.939593
+0.957089
+0.973968
+0.990281
+1.00607
+1.02139
+1.03625
+1.0507
+1.06477
+1.07847
+1.09183
+1.10488
+1.11762
+1.13008
+1.14227
+1.1542
+1.1659
+1.17736
+1.1886
+1.19964
+1.21047
+1.22112
+1.23158
+1.24187
+1.25199
+1.26195
+1.27175
+1.28141
+1.29092
+1.3003
+1.30954
+1.31865
+1.32764
+1.33651
+1.34526
+1.3539
+1.36243
+1.37085
+1.37918
+1.3874
+1.39553
+1.40356
+1.4115
+1.41936
+1.42713
+1.43481
+1.44241
+1.44994
+1.45738
+1.46476
+1.47205
+1.47928
+1.48644
+1.49352
+1.50054
+1.5075
+1.51439
+1.52122
+1.52799
+1.5347
+1.54136
+1.54795
+1.55449
+1.56098
+1.56741
+1.57379
+1.58011
+1.58639
+1.59262
+1.5988
+1.60493
+1.61102
+1.61706
+1.62305
+1.629
+1.63491
+1.64078
+1.6466
+1.65239
+1.65813
+1.66383
+1.6695
+1.67512
+1.68071
+1.68627
+1.69178
+1.69726
+1.70271
+1.70812
+1.71349
+1.71884
+1.72415
+1.72942
+1.73467
+1.73988
+1.74507
+1.75022
+1.75534
+1.76043
+1.76549
+1.77053
+1.77553
+1.78051
+1.78546
+1.79038
+1.79528
+1.80015
+1.80499
+1.80981
+1.8146
+1.81937
+1.82411
+1.82882
+1.83352
+1.83819
+1.84283
+1.84745
+1.85205
+1.85663
+1.86118
+1.86571
+1.87022
+1.87471
+1.87918
+1.88362
+1.88805
+1.89245
+1.89684
+1.9012
+1.90554
+1.90987
+1.91417
+1.91846
+1.92272
+1.92697
+1.9312
+1.93541
+1.9396
+1.94377
+1.94793
+1.95207
+1.95619
+1.96029
+1.96438
+1.96845
+1.9725
+1.97654
+1.98056
+1.98456
+1.98855
+1.99252
+1.99647
+2.00041
+2.00434
+2.00825
+2.01214
+2.01602
+2.01988
+2.02373
+2.02757
+2.03139
+2.0352
+2.03899
+2.04277
+2.04653
+2.05028
+2.05402
+2.05774
+2.06145
+2.06514
+2.06883
+2.0725
+2.07615
+2.0798
+2.08343
+2.08705
+2.09066
+2.09425
+2.09783
+2.1014
+2.10496
+2.1085
+2.11204
+2.11556
+2.11907
+2.12257
+2.12605
+2.12953
+2.13299
+2.13645
+2.13989
+2.14332
+2.14674
+2.15015
+2.15355
+2.15693
+2.16031
+2.16368
+2.16703
+2.17038
+2.17372
+2.17704
+2.18036
+2.18366
+2.18696
+2.19024
+2.19352
+2.19678
+2.20004
+2.20328
+2.20652
+2.20975
+2.21297
+2.21617
+2.21937
+2.22256
+2.22574
+2.22892
+2.23208
+2.23523
+2.23838
+2.24151
+2.24464
+2.24776
+2.25087
+2.25397
+2.25707
+2.26015
+2.26323
+2.26629
+2.26935
+2.27241
+2.27545
+2.27848
+2.28151
+2.28453
+2.28754
+2.29054
+2.29354
+2.29653
+2.29951
+2.30248
+2.30544
+2.3084
+2.31135
+2.31429
+2.31722
+2.32015
+2.32307
+2.32598
+2.32889
+2.33179
+2.33468
+2.33756
+2.34044
+2.34331
+2.34617
+2.34902
+2.35187
+2.35471
+2.35755
+2.36037
+2.3632
+2.36601
+2.36882
+2.37162
+2.37441
+2.3772
+2.37998
+2.38276
+2.38552
+2.38829
+2.39104
+2.39379
+2.39653
+2.39927
+2.402
+2.40473
+2.40744
+2.41016
+2.41286
+2.41556
+2.41826
+2.42094
+2.42363
+2.4263
+2.42897
+2.43164
+2.43429
+2.43695
+2.43959
+2.44223
+2.44487
+2.4475
+2.45012
+2.45274
+2.45535
+2.45796
+2.46056
+2.46316
+2.46575
+2.46834
+2.47092
+2.47349
+2.47606
+2.47862
+2.48118
+2.48374
+2.48628
+2.48883
+2.49137
+2.4939
+2.49643
+2.49895
+2.50146
+2.50398
+2.50648
+2.50899
+2.51148
+2.51398
+2.51646
+2.51895
+2.52142
+2.5239
+2.52636
+2.52883
+2.53129
+2.53374
+2.53619
+2.53863
+2.54107
+2.54351
+2.54594
+2.54836
+2.55078
+2.5532
+2.55561
+2.55802
+2.56042
+2.56282
+2.56521
+2.5676
+2.56998
+2.57236
+2.57474
+2.57711
+2.57948
+2.58184
+2.5842
+2.58655
+2.5889
+2.59125
+2.59359
+2.59593
+2.59826
+2.60059
+2.60291
+2.60524
+2.60755
+2.60986
+2.61217
+2.61448
+2.61678
+2.61907
+2.62136
+2.62365
+2.62594
+2.62822
+2.63049
+2.63276
+2.63503
+2.6373
+2.63956
+2.64181
+2.64407
+2.64632
+2.64856
+2.6508
+2.65304
+2.65527
+2.6575
+2.65973
+2.66195
+2.66417
+2.66639
+2.6686
+2.6708
+2.67301
+[Binunits]
+Units=1, 0, 0, 0
+[#Binheight]
+20
+6
+2
+0
+8
+11
+8
+4
+4
+4
+0
+0
+0
+0
+4
+0
+0
+2
+0
+0
+0
+2
+2
+0
+0
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+[SizeStats]
+Mean= 0.347001
+MeanMin= 0
+MeanMax= 0
+MeanNom= 0
+Mode= 0.125359
+ModeMin= 0
+ModeMax= 0
+ModeNom= 0
+Median= 0.255126
+MedianMin= 0
+MedianMax= 0
+MedianNom= 0
+SD= 0.274154
+SDMin= 0
+SDMax= 0
+SDNom= 0
+CV= 79.0065
+MinSize= 0.113
+MaxSize= 10
+XScale=72, 0, 0, 0
+YScale=1, 0, 0, 1
+Geometric= 0
+SampleSize= 83
+Variance= 0.0751602
+Skew= 1.77046
+Kurtosis= 2.43904
+D(p,q)= 0.787406
+p= 0
+q= 0
+MinChan= 0
+MaxChan= 399
+D10= 0.124246
+D50= 0.255126
+D90= 0.703748
+SSA= 0
+CumY= 91
+ConfMin= 0.288021
+ConfMax= 0.405982
+d10Nom= 0
+d10Min= 0
+d10Max= 0
+d90Nom= 0
+d90Min= 0
+d90Max= 0
+[SizePctX]
+10
+25
+50
+75
+90
+-1
+-1
+-1
+-1
+[SizePctXGT]
+10
+25
+50
+75
+90
+-1
+-1
+-1
+-1
+[SizePctY]
+0.124246
+0.151312
+0.255126
+0.366354
+0.703748
+0.113
+0.113
+0.113
+0.113
+[SizePctYGT]
+0.703748
+0.366354
+0.255126
+0.151312
+0.124246
+1.22529
+1.22529
+1.22529
+1.22529
+[#Pulses5hex]
+197,ED,11C,13D,11
+13A,DA,28,2D,11
+1E3,F5,B3,10B,11
+29B,18B,28,B2,11
+1A2,D9,59,79,11
+978,59B,D4,607,12
+576,2E2,5C,1F1,11
+163,F1,34,42,11
+281,179,6B,129,11
+246,16F,56,BD,11
+141,C0,C3,8C,11
+249,13A,2C,63,11
+1AB,F3,24,30,11
+77C,462,122,596,12
+455,252,80,296,11
+213,13A,3A,92,11
+1C9,F6,64,9F,11
+1BE,E5,146,1AF,11
+75C,486,E8,3AC,12
+573,308,111,2AA,11
+29B,154,D0,119,11
+3FE,24F,58,156,11
+489,25B,48,133,11
+40B,235,100,265,11
+278,13D,EC,178,11
+504,2B7,11B,31A,11
+22F,157,36,72,11
+2B5,16D,102,16E,11
+159,C9,29,28,11
+784,419,40,1EB,22
+141,A5,D4,9B,11
+135,D9,1DC,16D,11
+142,B0,165,142,11
+B2C,5FB,E1,51E,12
+205,105,AA,140,11
+189,CE,ED,10E,11
+2D3,17C,10C,182,11
+135,A4,25,2D,11
+7DC,47E,B4,42F,12
+1EF,109,38,7C,11
+1DF,F7,23,4D,11
+137,C4,47,3F,11
+21A,12B,48,9A,11
+216,14F,44,97,11
+277,182,50,C8,11
+266,15F,172,1D4,11
+221,157,30,82,11
+14D,BB,29,2B,11
+152C,C88,D3,F33,22
+135,B9,50,54,11
+17F,C8,2C,45,11
+198,D2,5D,80,11
+74C,3EA,13A,77F,12
+13F,BB,37,3B,11
+173,BD,2B,44,11
+58C,340,43,189,11
+368,213,4D,A5,11
+1EA,13B,40,84,11
+21C,112,179,24C,11
+4C2,2C0,33,1D5,11
+384,238,22,76,11
+141,AE,35,3C,11
+15D,BD,124,111,11
+150,C9,C4,A2,11
+223,139,2F,B2,11
+223,14B,3E,6D,11
+1DA,137,34,62,11
+25D,197,24,65,11
+29A,16D,136,1C1,11
+3DA,1F8,120,308,11
+273,148,57,C5,11
+1EC0,FC4,B2,12AF,23
+240,14B,4B,99,11
+137,A2,44,53,11
+1CB,E8,5F,8F,11
+1028,930,95,884,22
+2AA,174,2F,83,11
+7F8,44E,58,2B7,22
+204,10E,152,159,11
+177,D8,6C,6B,11
+140,EF,33,35,11
+22F,156,E8,1E5,11
+2A0,17C,2B,6D,11
+[#TSms]
+ 90
+ 290
+ 490
+ 690
+ 890
+ 1090
+ 1290
+ 1490
+ 1690
+ 1890
+ 2090
+ 2290
+ 2490
+ 2690
+ 2890
+ 3090
+ 3290
+ 3490
+ 3690
+ 3890
+ 4090
+ 4290
+ 4490
+ 4690
+ 4890
+ 5090
+ 5290
+ 5490
+ 5690
+ 5890
+ 6090
+ 6290
+ 6490
+ 6690
+ 6890
+ 7090
+ 7290
+ 7490
+ 7690
+ 7890
+ 8090
+ 8290
+ 8490
+ 8690
+ 8890
+ 9090
+ 9290
+ 9490
+ 9690
+ 9890
+ 10090
+ 10290
+ 10490
+ 10690
+ 10890
+ 11090
+ 11290
+ 11490
+ 11690
+ 11890
+ 12090
+ 12290
+ 12490
+ 12690
+ 12890
+ 13090
+ 13290
+ 13490
+ 13690
+ 13890
+ 14090
+ 14290
+ 14490
+ 14690
+ 14890
+ 15090
+ 15290
+ 15490
+ 15690
+ 15890
+ 16090
+ 16290
+ 16490
+ 16690
+ 16890
+ 17090
+ 17290
+ 17490
+ 17690
+ 17890
+ 18090
+ 18290
+ 18490
+ 18690
+ 18890
+ 19090
+ 19290
+ 19490
+ 19690
+ 19890
+ 20090
+ 20290
+ 20490
+ 20690
+ 20890
+ 21090
+ 21270
+ 0
+[#TSpulses]
+ 1
+ 2
+ 3
+ 4
+ 5
+ 5
+ 6
+ 6
+ 7
+ 8
+ 11
+ 11
+ 13
+ 13
+ 13
+ 14
+ 16
+ 18
+ 18
+ 18
+ 19
+ 19
+ 21
+ 21
+ 23
+ 24
+ 24
+ 24
+ 24
+ 24
+ 25
+ 25
+ 25
+ 25
+ 25
+ 26
+ 30
+ 30
+ 34
+ 35
+ 36
+ 39
+ 39
+ 40
+ 40
+ 41
+ 43
+ 43
+ 45
+ 45
+ 49
+ 49
+ 49
+ 50
+ 50
+ 50
+ 50
+ 50
+ 50
+ 50
+ 52
+ 53
+ 54
+ 55
+ 55
+ 55
+ 55
+ 55
+ 55
+ 57
+ 57
+ 58
+ 61
+ 62
+ 63
+ 63
+ 66
+ 66
+ 66
+ 66
+ 66
+ 66
+ 69
+ 70
+ 71
+ 71
+ 72
+ 73
+ 73
+ 74
+ 74
+ 74
+ 74
+ 74
+ 74
+ 74
+ 74
+ 76
+ 76
+ 76
+ 77
+ 78
+ 78
+ 78
+ 80
+ 82
+ 83
+ 0
+[#TSconc]
+ 0
+ 0
+ 1
+ 0
+ 0
+ 0
+ 4
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 4
+ 0
+ 4
+ 0
+ 1
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2
+ 0
+ 0
+ 0
+ 0
+ 0
+ 1
+ 0
+ 0
+ 2
+ 0
+ 6
+ 0
+ 0
+ 0
+ 0
+ 1
+ 0
+ 1
+ 0
+ 2
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2
+ 5
+ 1
+ 0
+ 6
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 5
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2
+ 0
+ 0
+[#TSflow]
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2297
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 2341
+ 0
+[#TSvolts]
+ 114040
+ 114040
+ 114040
+ 114080
+ 114080
+ 114120
+ 114120
+ 114120
+ 114120
+ 114120
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114160
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114200
+ 114240
+ 114240
+ 114240
+ 114240
+ 114240
+ 114240
+ 114240
+ 114240
+ 114240
+ 0
+[#TSslots]
+ 187
+ 185
+ 183
+ 182
+ 180
+ 178
+ 176
+ 174
+ 173
+ 171
+ 169
+ 167
+ 165
+ 164
+ 162
+ 160
+ 158
+ 157
+ 155
+ 153
+ 152
+ 150
+ 148
+ 146
+ 144
+ 143
+ 141
+ 139
+ 137
+ 136
+ 134
+ 132
+ 130
+ 129
+ 127
+ 125
+ 123
+ 121
+ 120
+ 118
+ 116
+ 114
+ 113
+ 111
+ 109
+ 107
+ 106
+ 104
+ 102
+ 101
+ 99
+ 97
+ 95
+ 93
+ 92
+ 90
+ 88
+ 86
+ 85
+ 83
+ 81
+ 79
+ 78
+ 76
+ 74
+ 73
+ 71
+ 69
+ 67
+ 66
+ 64
+ 62
+ 61
+ 59
+ 57
+ 55
+ 53
+ 52
+ 50
+ 48
+ 46
+ 44
+ 43
+ 41
+ 39
+ 37
+ 36
+ 34
+ 32
+ 30
+ 28
+ 27
+ 25
+ 23
+ 21
+ 20
+ 18
+ 16
+ 14
+ 12
+ 11
+ 9
+ 7
+ 6
+ 4
+ 2
+ 0
+ 0
+[#TSpspeed]
+ 105
+ 105
+ 90
+ 90
+ 90
+ 105
+ 120
+ 60
+ 120
+ 150
+ 45
+ 120
+ 105
+ 120
+ 135
+ 105
+ 105
+ 90
+ 105
+ 105
+ 105
+ 120
+ 120
+ 120
+ 90
+ 90
+ 105
+ 120
+ 60
+ 105
+ 105
+ 90
+ 90
+ 90
+ 120
+ 105
+ 90
+ 120
+ 135
+ 90
+ 135
+ 105
+ 135
+ 135
+ 90
+ 105
+ 105
+ 90
+ 90
+ 120
+ 120
+ 105
+ 105
+ 90
+ 135
+ 135
+ 45
+ 120
+ 105
+ 105
+ 105
+ 60
+ 90
+ 105
+ 90
+ 90
+ 105
+ 120
+ 90
+ 105
+ 120
+ 135
+ 135
+ 105
+ 105
+ 90
+ 90
+ 105
+ 105
+ 120
+ 120
+ 120
+ 90
+ 135
+ 105
+ 120
+ 90
+ 105
+ 105
+ 105
+ 105
+ 90
+ 120
+ 120
+ 120
+ 90
+ 120
+ 60
+ 105
+ 90
+ 120
+ 90
+ 105
+ 60
+ 135
+ 105
+ 0
+ 0
+[#TSppressure]
+ 11759
+ 11759
+ 11758
+ 11758
+ 11758
+ 11759
+ 11760
+ 11756
+ 11760
+ 11762
+ 11755
+ 11760
+ 11759
+ 11760
+ 11761
+ 11759
+ 11759
+ 11758
+ 11759
+ 11759
+ 11759
+ 11760
+ 11760
+ 11760
+ 11758
+ 11758
+ 11759
+ 11760
+ 11756
+ 11759
+ 11759
+ 11758
+ 11758
+ 11758
+ 11760
+ 11759
+ 11758
+ 11760
+ 11761
+ 11758
+ 11761
+ 11759
+ 11761
+ 11761
+ 11758
+ 11759
+ 11759
+ 11758
+ 11758
+ 11760
+ 11760
+ 11759
+ 11759
+ 11758
+ 11761
+ 11761
+ 11755
+ 11760
+ 11759
+ 11759
+ 11759
+ 11756
+ 11758
+ 11759
+ 11758
+ 11758
+ 11759
+ 11760
+ 11758
+ 11759
+ 11760
+ 11761
+ 11761
+ 11759
+ 11759
+ 11758
+ 11758
+ 11759
+ 11759
+ 11760
+ 11760
+ 11760
+ 11758
+ 11761
+ 11759
+ 11760
+ 11758
+ 11759
+ 11759
+ 11759
+ 11759
+ 11758
+ 11760
+ 11760
+ 11760
+ 11758
+ 11760
+ 11756
+ 11759
+ 11758
+ 11760
+ 11758
+ 11759
+ 11756
+ 11761
+ 11759
+ 11759
+ 0
+[end]
+CHK1= 00571613
+CHK2= 44DC09C8
+CHK3= 06643023
+CHK4= FE709B8E
+CHK5= C:\Users\Demo\Desktop\Dario_Multisizer\LB_600mM_Sucrose_03_05_19\LB_600mM_Sucrose_Blanks\LB_600_Sucrose_Blank_02.#m4
+[eof]

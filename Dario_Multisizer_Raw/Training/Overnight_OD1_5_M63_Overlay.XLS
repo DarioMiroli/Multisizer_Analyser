@@ -1,0 +1,65 @@
+Multisizer	15:50  13 Mar 2019
+File name:	C:\Multisizer4e\Samples\Training\Overnight_OD1_5_M63_Overlay.XLS
+File ID:	M63_600mM_NaCl_YD133_PWR20_Filtered_Diluted_Overnight
+Sample ID:	M63_600mM_NaCl_YD133_PWR20_Filtered_Diluted_overnight
+Control mode:	Total count 100000 
+Acquired:	
+Size bins:	400
+From	0.600
+To	18.00
+Sizing threshold:	0.600
+Total pulses:	0
+Counting threshold:	0.600
+Counts above threshold:	0
+Coincidence corrected:	0
+
+From	0.113
+To	3054
+Number 	0
+Mean:	0
+Median:	0
+D(0,0):	0
+Mean/Median ratio:	0
+Mode:	0
+95% Conf. Limits:	0
+95% Conf. Limits:	0
+S.D.:	0
+Variance:	0
+C.V.:	0
+Skewness:	0
+Kurtosis:	0
+d10:	0
+d50:	0
+d90:	0
+Specific Surf. Area:	0
+
+% <	Size 
+10	0
+25	0
+50	0
+75	0
+90	0
+
+% >	Size 
+10	0
+25	0
+50	0
+75	0
+90	0
+
+Size 	% <
+1	0
+10	0
+100	0
+1000	0
+
+Size 	% >
+0.65	0
+1	0
+2	0
+3	0
+5	0
+8	0
+10	0
+20	0
+

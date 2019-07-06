@@ -1,0 +1,61 @@
+Multisizer	12:22  12 Mar 2019
+File name:	M63_pot_2_24.#m4
+File ID:	M63_pot_2
+Sample ID:	M63_Pot_2
+Control mode:	Volumetric,  50  uL
+Acquired:	12:22  12 Mar 2019
+Size bins:	400
+From	0.600
+To	18.00
+Sizing threshold:	0.600
+Total pulses:	804
+Counting threshold:	0.600
+Counts above threshold:	804
+Coincidence corrected:	804
+
+From	0.600
+To	18.00
+Number 	791.0
+Mean:	1.026
+Median:	0.826
+D(0,0):	0.923
+Mean/Median ratio:	1.242
+Mode:	0.662
+95% Conf. Limits:	0.978
+95% Conf. Limits:	1.074
+S.D.:	0.689
+Variance:	0.475
+C.V.:	67.15
+Skewness:	5.144
+Kurtosis:	35.95
+d10:	0.634
+d50:	0.826
+d90:	1.550
+Specific Surf. Area:	21700
+
+% <	Size 
+10	0.634
+25	0.696
+50	0.826
+75	1.081
+90	1.550
+
+% >	Size 
+10	1.550
+25	1.081
+50	0.826
+75	0.696
+90	0.634
+
+Size 	% <
+1	70.0
+10	100
+100	100
+1000	100
+
+Size 	% >
+1	30.0
+10	0
+100	0
+1000	0
+

@@ -1,0 +1,61 @@
+Multisizer	11:21  12 Mar 2019
+File name:	L5_11.#m4
+File ID:	L5
+Sample ID:	L5
+Control mode:	Volumetric,  55  uL
+Acquired:	11:20  12 Mar 2019
+Size bins:	400
+From	0.600
+To	18.00
+Sizing threshold:	0.600
+Total pulses:	983
+Counting threshold:	0.600
+Counts above threshold:	983
+Coincidence corrected:	984
+
+From	0.600
+To	18.00
+Number 	971.0
+Mean:	1.065
+Median:	0.833
+D(0,0):	0.928
+Mean/Median ratio:	1.278
+Mode:	0.603
+95% Conf. Limits:	1.002
+95% Conf. Limits:	1.127
+S.D.:	0.996
+Variance:	0.991
+C.V.:	93.52
+Skewness:	7.804
+Kurtosis:	76.91
+d10:	0.635
+d50:	0.833
+d90:	1.568
+Specific Surf. Area:	10558
+
+% <	Size 
+10	0.635
+25	0.698
+50	0.833
+75	1.066
+90	1.568
+
+% >	Size 
+10	1.568
+25	1.066
+50	0.833
+75	0.698
+90	0.635
+
+Size 	% <
+1	69.5
+10	99.6
+100	100
+1000	100
+
+Size 	% >
+1	30.5
+10	0.41
+100	0
+1000	0
+

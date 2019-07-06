@@ -1,0 +1,65 @@
+Multisizer	11:41  13 Mar 2019
+File name:	M63_Blank_Average_1.#av
+File ID:	M63_Blank
+Sample ID:	M63_BLank
+Control mode:	Volumetric,  50  ul
+Acquired:	
+Size bins:	400
+From	0.600
+To	18.00
+Sizing threshold:	0.600
+Total pulses:	0
+Counting threshold:	0.600
+Counts above threshold:	2703
+Coincidence corrected:	2712
+
+From	0.600
+To	18.00
+Number 	2567
+Mean:	0.844
+Median:	0.676
+D(0,0):	0.777
+Mean/Median ratio:	1.247
+Mode:	0.608
+95% Conf. Limits:	0.825
+95% Conf. Limits:	0.862
+S.D.:	0.488
+Variance:	0.238
+C.V.:	57.85
+Skewness:	4.361
+Kurtosis:	26.11
+d10:	0.611
+d50:	0.676
+d90:	1.237
+Specific Surf. Area:	30297
+
+% <	Size 
+10	0.611
+25	0.630
+50	0.676
+75	0.792
+90	1.237
+
+% >	Size 
+10	1.237
+25	0.792
+50	0.676
+75	0.630
+90	0.611
+
+Size 	% <
+1	84.9
+10	100
+100	100
+1000	100
+
+Size 	% >
+0.65	63.0
+1	15.1
+2	3.77
+3	1.22
+5	0.19
+8	0
+10	0
+20	0
+
