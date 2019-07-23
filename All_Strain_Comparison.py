@@ -28,7 +28,7 @@ for d in data:
         cellType.append(2)
 
 
-MultiSizerReader.plotData(data,groupValues=cellType,logAxis=False,labels=labels,legend=False,title="All strain comparison",xLims=(0.3,5))
+MultiSizerReader.plotData(data,groupValues=cellType,logAxis=False,labels=labels,legend=False,title="All strain comparison",xLims=(0.3,5),joymode=True)
 
 combinedData,combinedTypes,combinedLabels = MultiSizerReader.sumByGroup(data,cellType,labels)
 MultiSizerReader.plotData(combinedData,combinedTypes,labels=combinedLabels,logAxis=False,legend=True,

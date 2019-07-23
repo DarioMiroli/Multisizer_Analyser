@@ -5,6 +5,10 @@ matplotlib.rcParams["savefig.directory"] = os.chdir(os.path.dirname(__file__))
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import seaborn as sns
+from matplotlib import rc,rcParams
+rc('axes', linewidth=2)
+rc('font', weight='bold')
+rcParams['text.latex.preamble'] = [r'\boldmath']
 
 
 
@@ -55,13 +59,28 @@ class MultiSizerReader:
 
     def plotData(dataList,groupValues = None, labels= None, alpha = 1.0, legend = True,
         spacing = 0.015,title= None,joymode = False,showStats=True,smoothing=1,logAxis=True,
-        xLims=None,logNormalFits=False):
+        xLims=None,logNormalFits=False,ax=None,diameter=False, density=False ):
         '''
         Should plot joy like plots for all multisizer objects in list "dataList". Will color traces with same group value the same color
         '''
-        spacing = smoothing*spacing
         if joymode == True:
-            plt.style.use("dark_background")
+            if ax != None:
+                ax.patch.set_facecolor('black')
+            if ax == None:
+                plt.style.use("dark_background")
+        else:
+            plt.style.use("default")
+
+
+        if ax == None:
+            fig, ax = plt.subplots(nrows=1,ncols=1,figsize=(12,8))
+            show= True
+        else:
+            show = False
+
+
+        spacing = smoothing*spacing
+
         if groupValues == None:
             groupValues= [i for i in range(len(dataList))]
         if labels == None:
@@ -92,7 +111,15 @@ class MultiSizerReader:
             else:
                 X,Y = x,y
             x = X
-            y = ((np.asarray(Y))/sum(Y)) + spacing*i
+            #Convert volume to diameter
+            if diameter:
+                x = 2*np.power( 3*np.asarray(x)/(4*np.pi),1/3.0)
+            binSpacings = np.asarray(  [x[i+1] - x[i] for i in range(len(x)-1)] )
+            binSpacings = np.append(binSpacings,binSpacings[-1])
+            if density == True:
+                y = ((np.asarray(Y))/(sum(Y)*binSpacings)) + spacing*i
+            else:
+                y = ((np.asarray(Y))/(sum(Y))) + spacing*i
             y2 = [spacing*i for k in range(len(X))]
 
             if i != len(dataList)-1:
@@ -100,12 +127,12 @@ class MultiSizerReader:
                     c = c - 1
 
             #Draw fill between black line and new zero line and fit log normal
-            plt.fill_between(x,y,y2, step="pre", alpha=alpha,color=colors[c], zorder = zorder[i], label=str(labels[i])+'N: {0}k'.format(int(dataList[i].totalCount/1000.0)))
+            if not joymode:
+                ax.fill_between(x,y,y2, step="pre", alpha=alpha,color=colors[c], zorder = zorder[i], label=str(labels[i])+'N: {0}k'.format(int(dataList[i].totalCount/1000.0)))
             if logNormalFits == True:
                 logNormalX,logNormalY, mu, sigma = MultiSizerReader.fitLogNormal(x,y-spacing*(i))
 
-                plt.plot(logNormalX,logNormalY+spacing*i,"b",zorder=zorder[i],label = "Median: {}".format(np.exp(mu)))
-                plt.legend
+                ax.plot(logNormalX,logNormalY+spacing*i,"b",zorder=zorder[i],label = "$\mu$: {0:.3f} , $\sigma$ : {1:.3f}".format(mu,sigma),linewidth=3,color="C1")
 
 
             if showStats== True:
@@ -119,38 +146,46 @@ class MultiSizerReader:
                         cumulativeNumber = cumulativeNumber + Y[n]
                     median = X[n]
                 average= sum([Y[k]*X[k] for k in range(len(Y))])/totalNumber
-                plt.fill_between([x[medianIndex],x[medianIndex+1]],[y[medianIndex],y[medianIndex+1]],[y2[medianIndex],y2[medianIndex+1]], step="pre", alpha=alpha,color="k",zorder=zorder[i])
+                ax.fill_between([x[medianIndex],x[medianIndex+1]],[y[medianIndex],y[medianIndex+1]],[y2[medianIndex],y2[medianIndex+1]], step="pre", alpha=alpha,color="k",zorder=zorder[i])
 
             if joymode == True:
                 lineColor = "w"
             if joymode == False:
                 lineColor = 'k'
             #Plot black line on top of hist
-            plt.plot(x,y,color=lineColor,drawstyle="steps",zorder =zorder[i] )
+            ax.plot(x,y,color=lineColor,drawstyle="steps",zorder =zorder[i] )
             if legend == True:
-                plt.legend()
+                ax.legend(fontsize="x-large")
             elif legend == False:
-                plt.text(lowerXLim + (upperXLim-lowerXLim)*0.6, y[-1]+0.001, str(labels[i]) + 'N: {0}k'.format(int(dataList[i].totalCount/1000.0)))
+                ax.text(lowerXLim + (upperXLim-lowerXLim)*0.6, y[-1]+0.001, str(labels[i]) + 'N: {0}k'.format(int(dataList[i].totalCount/1000.0)))
 
-        plt.gcf().set_size_inches(12, 8 )
-        for item in ([plt.gcf().get_axes()[0].title,plt.gcf().get_axes()[0].xaxis.label, plt.gcf().get_axes()[0].yaxis.label]
-            + plt.gcf().get_axes()[0].get_xticklabels() + plt.gcf().get_axes()[0].get_yticklabels()):
+        for item in ([ax.title,ax.xaxis.label, ax.yaxis.label] + ax.get_xticklabels() + ax.get_yticklabels()):
             item.set_fontsize(20)
         if logAxis:
-            plt.xscale("log")
-            plt.gcf().get_axes()[0].set_xticks([0.2, 0.5,0.7, 1.0,2.0,4.0,6.0,8.0,10])
-        plt.gcf().get_axes()[0].xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
-        plt.xlabel("Volume $\mu m^3$")
-        plt.ylabel("Relative Normalised Count")
+            ax.xscale("log")
+            ax.set_xticks([0.2, 0.5,0.7, 1.0,2.0,4.0,6.0,8.0,10])
+        ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
+        if diameter:
+            ax.set_xlabel("Equivalent spherical diameter $\mathbf{\mu m}$",fontsize=20,fontweight="bold")
+        else:
+            ax.set_xlabel("Volume $\mathbf{{\mu m^3}}$",fontsize=20,fontweight="bold")
+        ax.set_ylabel("Relative Normalised Count",fontsize=20,fontweight="bold")
         if title != None:
-            plt.gcf().get_axes()[0].set_title(title,fontsize=20)
-        plt.xlim(lowerXLim,upperXLim)
-        plt.show()
+            ax.set_title(title,fontsize=20,fontweight="bold")
+        ax.set_xlim(lowerXLim,upperXLim)
+        if show:
+            fig.tight_layout()
+            plt.show()
 
-    def boxPlotData(dataList,groupValues = None, labels= None, title=None,positions=None):
+    def boxPlotData(dataList,groupValues = None, labels= None, title=None, xlabel= "X axis", ylabel= "Y axis", positions=None,ax=None):
         '''
         Plot box plot of data coloring boxes by group color
         '''
+        if ax == None:
+            fig, ax = plt.subplots(nrows=1,ncols=1,figsize=(12,8))
+            show= True
+        else:
+            show = False
 
         if groupValues == None:
             groupValues= [i for i in range(len(dataList))]
@@ -169,11 +204,11 @@ class MultiSizerReader:
                 tempList = tempList + [data.bins[i]]*int(data.number[i])
             boxData.append(tempList)
 
-        boxData = [boxData[i]/np.mean(boxData[0]) for i in range(len(boxData))]
-        bp = plt.boxplot(boxData,labels=labels,vert=True,sym='.',whis=[1,99],patch_artist=True,showmeans=True,positions=positions)
-        plt.violinplot(boxData, points=300, widths=1.0, vert=True,
+        #boxData = [boxData[i]/np.mean(boxData[0]) for i in range(len(boxData))]
+        bp = ax.boxplot(boxData,labels=labels,vert=True,sym='.',whis=[1,99],patch_artist=True,showmeans=True,positions=positions)
+        ax.violinplot(boxData, points=300, widths=1.0, vert=True,
                       showmeans=False, showextrema=False, showmedians=False,positions=positions)
-        plt.plot([0,4,5,6],[4.6/4.6,3.8/4.6,3.9/4.6,3.5/4.6],'v--',zorder=999)
+        #plt.plot([0,4,5,6],[4.6/4.6,3.8/4.6,3.9/4.6,3.5/4.6],'v--',zorder=999)
 
 
         #sns.violinplot(data= boxData,orient="h",bw=0.08,cut=0,scale="area",gridsize=200, whis=[5, 100])
@@ -189,22 +224,24 @@ class MultiSizerReader:
             #box.set(hatch = '/')
         plt.setp(bp["medians"], color="k")
 
-        plt.gcf().set_size_inches(12, 8 )
-        for item in ([plt.gcf().get_axes()[0].title,plt.gcf().get_axes()[0].xaxis.label, plt.gcf().get_axes()[0].yaxis.label]
-            + plt.gcf().get_axes()[0].get_xticklabels() ):
+        for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] + ax.get_xticklabels() ):
             item.set_fontsize(20)
-        plt.xlabel("Concentration of extra NaCl (mM)")
-        plt.ylabel("Volume $\mu m^3$")
+        ax.set_xlabel(xlabel,fontsize=20,fontweight="bold")
+        ax.set_ylabel(ylabel,fontsize=20,fontweight="bold")
         if title != None:
-            plt.gcf().get_axes()[0].set_title(title,fontsize=20)
-        plt.yticks(fontsize=20,rotation = 50);
-        plt.tight_layout()
-        plt.show()
+            ax.set_title(title,fontsize=20,fontweight="bold")
+        ax.tick_params(axis="y", labelsize=15,)
+        ax.tick_params(axis="x", labelsize=15)
+        if show:
+            fig.tight_layout()
+            plt.show()
 
-    def sumByGroup(dataList,groupValues,labels=None):
+    def sumByGroup(dataList,groupValues=None,labels=None):
         '''
         Compiles multiple Multisizers files by summing their bins if they have the same groupValue. Size of lists "dataList" and "goupValues" should be the same
         '''
+        if groupValues == None:
+            groupValues = [0 for i in range(len(dataList))]
         #Sum data with same OD (move to function soon)
         combinedGroupValues = list(set(groupValues))
         combinedGroupValues.sort()
@@ -265,14 +302,14 @@ class MultiSizerReader:
             yPredict = prefactor*np.exp(-1.0*exponent)
             return yPredict
         #fit it
-        popt, pcov = curve_fit(logNormal, xs, ys)
+        popt, pcov = curve_fit(gaussian, xs, ys)
         #mu = 1.0
         #sigma = 0.2
         #k = 0.05
         #c =0
         #popt = [mu,sigma,k,c]
         xPredicted = np.linspace(start=min(xs),stop=max(xs),num=100000)
-        yPredicted = logNormal(xPredicted,popt[0],popt[1],popt[2])
+        yPredicted = gaussian(xPredicted,popt[0],popt[1],popt[2])
         return xPredicted,yPredicted, popt[0],popt[1]
 
     def getMean(self):
