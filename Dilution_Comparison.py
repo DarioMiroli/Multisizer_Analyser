@@ -26,10 +26,10 @@ for d in data:
 
 
 
-MultiSizerReader.plotData(data,groupValues=ODs,logAxis=False,labels=labels,legend=False,title="Dilution comparison",xLims=(0.4,5))
+MultiSizerReader.plotData(data,groupValues=ODs,joymode=False,logAxis=False,labels=labels,legend=False,title="Dilution comparison",xLims=(0.4,3.5))
 
 combinedData,combinedTypes,combinedLabels = MultiSizerReader.sumByGroup(data,ODs,labels)
 MultiSizerReader.plotData(combinedData,combinedTypes,labels=combinedLabels,logAxis=False,legend=False,
 title="Dilution comparison",logNormalFits=False,xLims=(0.4,5))
 
-MultiSizerReader.boxPlotData(combinedData,groupValues=combinedTypes,labels=combinedLabels,title="Dilution comparison")
+#MultiSizerReader.boxPlotData(combinedData,groupValues=combinedTypes,labels=combinedLabels,title="Dilution comparison")

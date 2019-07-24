@@ -79,7 +79,7 @@ class MultiSizerReader:
             show = False
 
 
-        spacing = smoothing*spacing
+        #spacing = smoothing*spacing
 
         if groupValues == None:
             groupValues= [i for i in range(len(dataList))]
@@ -132,7 +132,7 @@ class MultiSizerReader:
             if logNormalFits == True:
                 logNormalX,logNormalY, mu, sigma = MultiSizerReader.fitLogNormal(x,y-spacing*(i))
 
-                ax.plot(logNormalX,logNormalY+spacing*i,"b",zorder=zorder[i],label = "$\mu$: {0:.3f} , $\sigma$ : {1:.3f}".format(mu,sigma),linewidth=3,color="C1")
+                ax.plot(logNormalX,logNormalY+spacing*i,"b",zorder=zorder[i],label = "$\mu$: {0:.2f} , $\sigma$ : {1:.2f}".format(mu,abs(sigma)),linewidth=3,color="C{0}".format(i))
 
 
             if showStats== True:
@@ -271,23 +271,39 @@ class MultiSizerReader:
         heights = np.asarray(heights)
         newBins = []
         newHeights = []
-        index = 0
-        done = False
-        while not done:
 
-            if index+binsToSmooth > len(bins) -1 :
-                #Have some remainder left
-                done = True
-                newBins.append(bins[index])
-                newHeights.append(sum(heights[index:index + (len(bins)-1-index)]))
-            else:
-                newBins.append(bins[index])
-                newHeights.append(sum(heights[index:index+binsToSmooth]))
-            index = index +  binsToSmooth
-            #Perfectly fit into range
-            if index == len(bins) -1:
-                done = True
+        if binsToSmooth % 2 == 0:
+            binsToSmooth = binsToSmooth + 1
+
+        for i in range(len(bins)):
+            stride = (binsToSmooth-1)/2
+            lastBinIndex = stride + i
+            if lastBinIndex <= len(bins)-1:
+                newHeight = np.mean(heights[int(i-stride):int(i+stride+1)])
+            if lastBinIndex > len(bins)-1:
+                newHeight = np.mean(heights[int(i-stride):])
+            if i < stride + 1 :
+                newHeight = np.mean(heights[0:int(i+stride)])
+            newHeights.append(newHeight)
+            newBins.append(bins[i])
         return newBins, newHeights
+
+        #index = 0
+        #done = False
+        #while not done:
+        #    if index+binsToSmooth > len(bins) -1 :
+        #        #Have some remainder left
+        #        done = True
+        #        newBins.append(bins[index])
+        #        newHeights.append(sum(heights[index:index + (len(bins)-1-index)]))
+        #    else:
+        #        newBins.append(bins[index])
+        #        newHeights.append(sum(heights[index:index+binsToSmooth]))
+        #    index = index +  binsToSmooth
+        #    #Perfectly fit into range
+        #    if index == len(bins) -1:
+        #        done = True
+        #return newBins, newHeights
 
     def fitLogNormal(xs,ys):
         def logNormal(x,mu,sigma,k):

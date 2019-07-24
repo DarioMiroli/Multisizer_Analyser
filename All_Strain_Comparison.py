@@ -1,6 +1,6 @@
 from MultisizerReader import MultiSizerReader
 import os
-
+import matplotlib.pyplot as plt
 
 #Get all spread sheet files in fodler and create multisizer files for each
 folder = "./Data_Organised/All_Strains_Comparison"
@@ -28,10 +28,18 @@ for d in data:
         cellType.append(2)
 
 
-MultiSizerReader.plotData(data,groupValues=cellType,logAxis=False,labels=labels,legend=False,title="All strain comparison",xLims=(0.3,5),joymode=True)
+
+fig, ax = plt.subplots(nrows=1,ncols=2,figsize=(14,8))
+
+
+MultiSizerReader.plotData(data,groupValues=cellType,logAxis=False,labels=labels,legend=False,title="Strain comparison",xLims=(0.3,5),joymode=False,ax=ax[0],showStats=False)
 
 combinedData,combinedTypes,combinedLabels = MultiSizerReader.sumByGroup(data,cellType,labels)
 MultiSizerReader.plotData(combinedData,combinedTypes,labels=combinedLabels,logAxis=False,legend=True,
-        title="All strain comparison (averaged)",logNormalFits=False,xLims=(0.3,5))
-
-MultiSizerReader.boxPlotData(combinedData,groupValues=combinedTypes,labels=combinedLabels,title="All strain comparison")
+        title="Strain comparison (averaged)",logNormalFits=True,xLims=(0.3,5),ax=ax[1],smoothing=3, showStats=False,alpha=0.75  )
+ax[1].legend(fontsize="large")
+ax[0].text(0.05, 0.9 , "A", transform=ax[0].transAxes, size=35, weight='bold')
+ax[1].text(0.05, 0.9 , "B", transform=ax[1].transAxes, size=35, weight='bold')
+fig.tight_layout()
+plt.show()
+#MultiSizerReader.boxPlotData(combinedData,groupValues=combinedTypes,labels=combinedLabels,title="All strain comparison")
