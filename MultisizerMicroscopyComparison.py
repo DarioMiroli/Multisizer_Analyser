@@ -23,7 +23,7 @@ for line in f.readlines():
 #Subfigure plor
 fig, ax = plt.subplots(nrows=1,ncols=2,figsize=(14,8))
 combinedData,combinedTypes = MultiSizerReader.sumByGroup(data)
-MultiSizerReader.plotData(combinedData,combinedTypes,labels=["Multisizer "],logAxis=False,logNormalFits=True,xLims=(0.0,3.2),showStats=False,ax=ax[0],alpha=0.5)
+MultiSizerReader.plotData(combinedData,combinedTypes,labels=["Multisizer "],logAxis=False,logNormalFits=True,xLims=(0.0,3.2),showStats=False,ax=ax[0],alpha=0.5,density=True,text=False)
 
 #Plot microscopy histogram
 values,bins = np.histogram(microVolumes,bins=25,density=True)
@@ -44,8 +44,8 @@ microData = MultiSizerReader()
 microData.bins = x
 microData.number =y
 
-#ax[1].errorbar([3,1],[1.192,0.789],yerr=[0.167,0.295],fmt='o',ecolor="k",capsize=10,elinewidth=3)
-ax[1].bar(["Microscopy","Multisizer"],[np.mean(microVolumes),combinedData[0].getMean()],yerr=[np.std(microVolumes),combinedData[0].getStDev()],ecolor="k",capsize=10)
+ax[1].bar(["Microscopy","Multisizer"],[0.789,1.192],yerr=[0.295,0.167],ecolor="k",capsize=10)
+#ax[1].bar(["Microscopy","Multisizer"],[np.mean(microVolumes),combinedData[0].getMean()],yerr=[np.std(microVolumes),combinedData[0].getStDev()],ecolor="k",capsize=10)
 ax[1].tick_params(axis="y", labelsize=20)
 ax[1].tick_params(axis="x", labelsize=20)
 ax[1].set_ylim(0,2.2)

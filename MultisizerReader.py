@@ -59,7 +59,7 @@ class MultiSizerReader:
 
     def plotData(dataList,groupValues = None, labels= None, alpha = 1.0, legend = True,
         spacing = 0.015,title= None,joymode = False,showStats=True,smoothing=1,logAxis=True,
-        xLims=None,logNormalFits=False,ax=None,diameter=False, density=False ):
+        xLims=None,logNormalFits=False,ax=None,diameter=False, density=False, colorScale =False, text=True,cbarLabel="" ):
         '''
         Should plot joy like plots for all multisizer objects in list "dataList". Will color traces with same group value the same color
         '''
@@ -90,7 +90,25 @@ class MultiSizerReader:
         dataList = [dataItem for groupNo, dataItem in sorted(zip(groupValues,dataList), key=lambda pair: pair[0])]
         labels = [labelItem for groupNo, labelItem in sorted(zip(groupValues,labels), key=lambda pair: pair[0])]
         groupValues = sorted(groupValues)
-        colors = plt.cm.jet(np.linspace(0,1,noGroups))
+        if colorScale == False:
+            colors = plt.cm.jet(np.linspace(0,1,noGroups))
+        else:
+            colors =[]
+            uniqueGroups = list(dict.fromkeys(groupValues))
+            uniqueGroups = np.log10(uniqueGroups)
+            for i in range(len(uniqueGroups)):
+                normedValue = (uniqueGroups[i]-min(uniqueGroups))/(max(uniqueGroups)-min(uniqueGroups))
+                colors.append(plt.cm.inferno(normedValue))
+            from mpl_toolkits.axes_grid1 import make_axes_locatable
+            divider = make_axes_locatable(ax)
+            cax = divider.append_axes('right', size='5%', pad=0.05)
+            fig = plt.gcf()
+            cb = fig.colorbar( plt.cm.ScalarMappable(cmap=plt.cm.inferno, norm=matplotlib.colors.LogNorm(vmin=min(groupValues), vmax=max(groupValues))), cax=cax, orientation='vertical')
+            #cb.ax.yaxis.set_ticks(np.logspace(np.log10(min(groupValues)), np.log10(max(groupValues)), 10))
+            #cb.ax.yaxis.set_ticks([0.01,0.05,0.1,0.5,1.0,2.0,4.0])
+            cb.ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
+            cb.ax.tick_params(axis="y", labelsize=15)
+            cb.ax.set_title(cbarLabel,fontweight="bold",fontsize=15)
         if xLims == None and logAxis == True:
             lowerXLim,upperXLim = (0.3,15)
         elif xLims == None and logAxis == False:
@@ -156,7 +174,7 @@ class MultiSizerReader:
             ax.plot(x,y,color=lineColor,drawstyle="steps",zorder =zorder[i] )
             if legend == True:
                 ax.legend(fontsize="x-large")
-            elif legend == False:
+            if text == True:
                 ax.text(lowerXLim + (upperXLim-lowerXLim)*0.6, y[-1]+0.001, str(labels[i]) + 'N: {0}k'.format(int(dataList[i].totalCount/1000.0)))
 
         for item in ([ax.title,ax.xaxis.label, ax.yaxis.label] + ax.get_xticklabels() + ax.get_yticklabels()):
@@ -177,7 +195,7 @@ class MultiSizerReader:
             fig.tight_layout()
             plt.show()
 
-    def boxPlotData(dataList,groupValues = None, labels= None, title=None, xlabel= "X axis", ylabel= "Y axis", positions=None,ax=None):
+    def boxPlotData(dataList,groupValues = None, labels= None, title=None, xlabel= "X axis", ylabel= "Y axis", positions=None,ax=None,logAxis = False, violin = True, bWidth = 0.1, vWidth =0.1 ):
         '''
         Plot box plot of data coloring boxes by group color
         '''
@@ -205,12 +223,21 @@ class MultiSizerReader:
             boxData.append(tempList)
 
         #boxData = [boxData[i]/np.mean(boxData[0]) for i in range(len(boxData))]
-        bp = ax.boxplot(boxData,labels=labels,vert=True,sym='.',whis=[1,99],patch_artist=True,showmeans=True,positions=positions)
-        ax.violinplot(boxData, points=300, widths=1.0, vert=True,
-                      showmeans=False, showextrema=False, showmedians=False,positions=positions)
+        if logAxis:
+            width = lambda p, w: 10**(np.log10(p)+w/2.)-10**(np.log10(p)-w/2.)
+
+
+        else:
+            width = lambda p, w: w
+            ax.set_xscale("linear")
+        bp = ax.boxplot(boxData,labels=labels,vert=True,sym='.',whis=[1,99],patch_artist=True,showmeans=True,positions=positions,widths=width(positions,bWidth))
+        if violin:
+            ax.violinplot(boxData, points=300, widths=width(positions,vWidth), vert=True, showmeans=False, showextrema=False, showmedians=False,positions=positions)
         #plt.plot([0,4,5,6],[4.6/4.6,3.8/4.6,3.9/4.6,3.5/4.6],'v--',zorder=999)
-
-
+        if logAxis:
+            ax.set_xscale("log")
+        else:
+            ax.set_xscale("linear")
         #sns.violinplot(data= boxData,orient="h",bw=0.08,cut=0,scale="area",gridsize=200, whis=[5, 100])
         #plt.gcf().get_axes()[0].set(yticklabels=labels)
 
