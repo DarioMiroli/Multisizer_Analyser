@@ -56,9 +56,4 @@ ax[0][1].text(0.90, 0.87 , "B", transform=ax[0][1].transAxes, size=35, weight='b
 ax[1][0].text(0.90, 0.87 , "C", transform=ax[1][0].transAxes, size=35, weight='bold',color="gray")
 ax[1][1].text(0.90, 0.87 , "D", transform=ax[1][1].transAxes, size=35, weight='bold',color="gray")
 
-
-fig.tight_layout()
-plt.savefig("./Graphs/ThesisFigures/GrowthCurve.png")
-plt.savefig("./Graphs/ThesisFigures/GrowthCurve.pdf")
-
 plt.show()

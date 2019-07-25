@@ -4,6 +4,7 @@ import matplotlib
 matplotlib.rcParams["savefig.directory"] = os.chdir(os.path.dirname(__file__))
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from scipy import stats
 import seaborn as sns
 from matplotlib import rc,rcParams
 rc('axes', linewidth=2)
@@ -179,6 +180,7 @@ class MultiSizerReader:
 
         for item in ([ax.title,ax.xaxis.label, ax.yaxis.label] + ax.get_xticklabels() + ax.get_yticklabels()):
             item.set_fontsize(20)
+        print(logAxis)
         if logAxis:
             ax.xscale("log")
             ax.set_xticks([0.2, 0.5,0.7, 1.0,2.0,4.0,6.0,8.0,10])
@@ -345,14 +347,14 @@ class MultiSizerReader:
             yPredict = prefactor*np.exp(-1.0*exponent)
             return yPredict
         #fit it
-        popt, pcov = curve_fit(gaussian, xs, ys)
+        popt, pcov = curve_fit(logNormal, xs, ys)
         #mu = 1.0
         #sigma = 0.2
         #k = 0.05
         #c =0
         #popt = [mu,sigma,k,c]
         xPredicted = np.linspace(start=min(xs),stop=max(xs),num=100000)
-        yPredicted = gaussian(xPredicted,popt[0],popt[1],popt[2])
+        yPredicted = logNormal(xPredicted,popt[0],popt[1],popt[2])
         return xPredicted,yPredicted, popt[0],popt[1]
 
     def getMean(self):
@@ -381,8 +383,19 @@ class MultiSizerReader:
         stdev = (total)**0.5
         return stdev
 
+    def getMedian(self):
+        ''' Get the median of the data set '''
+        tempList = []
+        for i in range(len(self.number)):
+            tempList = tempList + [self.bins[i]]*int(self.number[i])
+        return np.median(tempList)
 
-
+    def getMAD(self):
+        '''Returns median absoloute deviation. It is a measure of spread robust to outliers and works for non normal distributions '''
+        tempList = []
+        for i in range(len(self.number)):
+            tempList = tempList + [self.bins[i]]*int(self.number[i])
+        return stats.median_absolute_deviation(tempList)
 
 
     def __str__(self):
