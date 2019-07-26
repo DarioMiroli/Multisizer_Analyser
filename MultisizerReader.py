@@ -60,7 +60,7 @@ class MultiSizerReader:
 
     def plotData(dataList,groupValues = None, labels= None, alpha = 1.0, legend = True,
         spacing = 0.015,title= None,joymode = False,showStats=True,smoothing=1,logAxis=True,
-        xLims=None,logNormalFits=False,ax=None,diameter=False, density=False, colorScale =False, text=True,cbarLabel="" ):
+        xLims=None,logNormalFits=False,ax=None,diameter=False, density=False, colorScale =False, text=True,cbarLabel="", colors=None ):
         '''
         Should plot joy like plots for all multisizer objects in list "dataList". Will color traces with same group value the same color
         '''
@@ -91,25 +91,27 @@ class MultiSizerReader:
         dataList = [dataItem for groupNo, dataItem in sorted(zip(groupValues,dataList), key=lambda pair: pair[0])]
         labels = [labelItem for groupNo, labelItem in sorted(zip(groupValues,labels), key=lambda pair: pair[0])]
         groupValues = sorted(groupValues)
-        if colorScale == False:
-            colors = plt.cm.jet(np.linspace(0,1,noGroups))
-        else:
-            colors =[]
-            uniqueGroups = list(dict.fromkeys(groupValues))
-            uniqueGroups = np.log10(uniqueGroups)
-            for i in range(len(uniqueGroups)):
-                normedValue = (uniqueGroups[i]-min(uniqueGroups))/(max(uniqueGroups)-min(uniqueGroups))
-                colors.append(plt.cm.inferno(normedValue))
-            from mpl_toolkits.axes_grid1 import make_axes_locatable
-            divider = make_axes_locatable(ax)
-            cax = divider.append_axes('right', size='5%', pad=0.05)
-            fig = plt.gcf()
-            cb = fig.colorbar( plt.cm.ScalarMappable(cmap=plt.cm.inferno, norm=matplotlib.colors.LogNorm(vmin=min(groupValues), vmax=max(groupValues))), cax=cax, orientation='vertical')
-            #cb.ax.yaxis.set_ticks(np.logspace(np.log10(min(groupValues)), np.log10(max(groupValues)), 10))
-            #cb.ax.yaxis.set_ticks([0.01,0.05,0.1,0.5,1.0,2.0,4.0])
-            cb.ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
-            cb.ax.tick_params(axis="y", labelsize=15)
-            cb.ax.set_title(cbarLabel,fontweight="bold",fontsize=15)
+        if colors == None:
+            if colorScale == False:
+                colors = plt.cm.jet(np.linspace(0,1,noGroups))
+            else:
+                colors =[]
+                uniqueGroups = list(dict.fromkeys(groupValues))
+                uniqueGroups = np.log10(uniqueGroups)
+                for i in range(len(uniqueGroups)):
+                    normedValue = (uniqueGroups[i]-min(uniqueGroups))/(max(uniqueGroups)-min(uniqueGroups))
+                    colors.append(plt.cm.inferno(normedValue))
+                from mpl_toolkits.axes_grid1 import make_axes_locatable
+                divider = make_axes_locatable(ax)
+                cax = divider.append_axes('right', size='5%', pad=0.05)
+                fig = plt.gcf()
+                cb = fig.colorbar( plt.cm.ScalarMappable(cmap=plt.cm.inferno, norm=matplotlib.colors.LogNorm(vmin=min(groupValues), vmax=max(groupValues))), cax=cax, orientation='vertical')
+                #cb.ax.yaxis.set_ticks(np.logspace(np.log10(min(groupValues)), np.log10(max(groupValues)), 10))
+                #cb.ax.yaxis.set_ticks([0.01,0.05,0.1,0.5,1.0,2.0,4.0])
+                cb.ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
+                cb.ax.tick_params(axis="y", labelsize=15)
+                cb.ax.set_title(cbarLabel,fontweight="bold",fontsize=15)
+
         if xLims == None and logAxis == True:
             lowerXLim,upperXLim = (0.3,15)
         elif xLims == None and logAxis == False:

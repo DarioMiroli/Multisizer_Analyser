@@ -59,7 +59,20 @@ for i,key in enumerate(concentrations):
 #Plot averages (stats summary)
 rc('axes', linewidth=2)
 rc('font', weight='bold')
-fig, ax = plt.subplots(nrows=1,ncols=2,figsize=(14,9))
+fig, ax = plt.subplots(nrows=1,ncols=2,figsize=(14,11))
+rc('font', weight='bold')
+ax1 = plt.subplot2grid((2,2), (0, 0), colspan=2)
+rc('font', weight='bold')
+ax2 = plt.subplot2grid((2,2), (1, 0))
+rc('font', weight='bold')
+ax3 = plt.subplot2grid((2,2), (1, 1))
+rc('font', weight='bold')
+
+ax = [ax1,ax2,ax3]
+
+lowODs = [0.059,0.063,0.059,0.048]
+highODs = [0.132,0.112,0.136,0.171]
+c = 0
 for key in concentrations:
     condition = key
     dataList  =  combinedDataDic[key]
@@ -70,21 +83,27 @@ for key in concentrations:
     MADs = [d.getMAD() for d in dataList]
     stdevs = np.asarray([d.getStDev() for d in dataList])
     p = ax[0].plot(ODs,medians,'o--',label=key+" mM NaCl")
-    ax[0].fill_between(ODs,means+MADs,means-MADs,alpha=0.1)
+    ax[0].plot(lowODs[c],medians[ODs.index(lowODs[c])],'^',markersize=12,color="C{}".format(c))
+    ax[0].plot(highODs[c],medians[ODs.index(highODs[c])],'s',markersize=12,color="C{}".format(c))
+
+    ax[0].fill_between(ODs,medians+MADs,medians-MADs,alpha=0.1)
     #plt.plot(ODs,modes,"*",c=p[0].get_color())
+    c = c + 1
 ax[0].set_xscale("log")
+ax[0].set_ylim(0.6,2)
+
 for item in ([ax[0].title,ax[0].xaxis.label, ax[0].yaxis.label] + ax[0].get_xticklabels() + ax[0].get_yticklabels()):
     item.set_fontsize(20)
 ax[0].set_xticks([0.001,0.003,0.01,0.03,0.1,0.3,1,4])
 ax[0].xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
-ax[0].legend()
-ax[0].set_xlabel("OD$_{600}$")
-ax[0].set_ylabel("Median cell volume $\mu m^3$")
-ax[0].set_title("Cell size at high osmollarity",fontsize=20)
+ax[0].legend(fontsize="x-large")
+ax[0].tick_params(axis="x", labelsize=15)
+ax[0].set_xlabel("OD$\mathbf{_{600}}$",weight="bold")
+ax[0].set_ylabel("Median cell volume $\mathbf{\mu m^3}$",weight="bold")
+ax[0].set_title("Cell size at high osmollarity",fontsize=20,weight="bold")
 ax[0].xaxis.grid(True)
-fig.tight_layout()
-plt.show()
-exit()
+
+
 
 ODs = [0.059,0.063,0.059,0.048]
 comparisonData = []
@@ -96,11 +115,44 @@ for i in range(len(ODs)):
     for d in combinedDataDic[concentrations[i]]:
         if d.OD == ODs[i]:
             comparisonData.append(d)
-            labels.append("{} mM NaCl".format(concentrations[i]))
+            labels.append("{} mM NaCl ".format(concentrations[i]))
             concs.append(concentrations[i])
             means.append(d.getMean())
-MultiSizerReader.plotData(comparisonData,labels=labels,legend=False,logAxis=False,xLims=(0.4,5),title="Osmo comparison OD ~0.06",joymode= False)
-MultiSizerReader.boxPlotData(comparisonData,labels=concentrations,title="Osmo comparison OD ~0.06",positions=[0.0,2.0,4.0,6.0])
+rc('font', weight='bold')
+MultiSizerReader.plotData(comparisonData,colors=["C0","C1","C2","C3","C4"],alpha=0.75,logNormalFits=False,labels=labels,ax=ax[1],smoothing=3,text=False,legend=True,logAxis=False,xLims=(0.4,5),title="Cell size at OD$\mathbf{_{600}}$ ~0.06",joymode= False)
+
+
+ODs = [0.132,0.112,0.136,0.171]
+comparisonData = []
+labels = []
+concs = []
+means = []
+for i in range(len(ODs)):
+    print(type(combinedDataDic[concentrations[i]]))
+    for d in combinedDataDic[concentrations[i]]:
+        if d.OD == ODs[i]:
+            comparisonData.append(d)
+            labels.append("{} mM NaCl ".format(concentrations[i]))
+            concs.append(concentrations[i])
+            means.append(d.getMean())
+rc('font', weight='bold')
+MultiSizerReader.plotData(comparisonData,colors=["C0","C1","C2","C3","C4"],alpha=0.75,logNormalFits=False,labels=labels,ax=ax[2],smoothing=3,text=False,legend=True,logAxis=False,xLims=(0.4,5),title="Cell size at OD$\mathbf{_{600}}$ ~0.15",joymode= False)
+
+#MultiSizerReader.boxPlotData(comparisonData,labels=concentrations,ax=ax[2],title="Osmo comparison OD ~0.06",positions=[0.0,2.0,4.0,6.0])
+fig.tight_layout()
+ax[0].text(0.01, 0.85 , "A", transform=ax[0].transAxes, size=30, weight='bold')
+ax[1].text(0.02, 0.85 , "B", transform=ax[1].transAxes, size=30, weight='bold')
+ax[2].text(0.02, 0.85 , "C", transform=ax[2].transAxes, size=30, weight='bold')
+ax[1].legend(prop={'size':14,"weight":"bold"})
+ax[2].legend(prop={'size':14,"weight":"bold"})
+plt.savefig("Graphs/ThesisFigures/OsmoGrowthCurves.png")
+plt.savefig("Graphs/ThesisFigures/OsmoGrowthCurves.pdf")
+
+
+
+plt.show()
+exit()
+
 
 plt.plot(concs,means,"--o")
 plt.xlabel("NaCl Concentration (mM)")
@@ -108,6 +160,25 @@ plt.ylabel("Mean cell volume $\mu m^3$")
 plt.tight_layout()
 plt.show()
 
-
-
 exit()
+
+
+
+
+
+
+#Median low OD plot ************************************************************
+comparisonData = []
+labels = []
+concs = []
+means = []
+for i in range(len(ODs)):
+    print(type(combinedDataDic[concentrations[i]]))
+    for d in combinedDataDic[concentrations[i]]:
+        if d.OD == ODs[i]:
+            comparisonData.append(d)
+            labels.append("{} mM NaCl ".format(concentrations[i]))
+            concs.append(concentrations[i])
+            means.append(d.getMean())
+rc('font', weight='bold')
+MultiSizerReader.plotData(comparisonData,colors=["C0","C1","C2","C3","C4"],alpha=0.75,logNormalFits=False,labels=labels,ax=ax[2],smoothing=3,text=False,legend=True,logAxis=False,xLims=(0.4,5),title="Cell size at OD$\mathbf{_{600}}$ ~0.15",joymode= False)
