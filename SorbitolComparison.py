@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib import rc,rcParams
 #Get all spread sheet files in fodler and create multisizer files for each
-folders = [ "./Data_Organised/YD133+PWR20_000_GrowthCurve","./Data_Organised/YD133+PWR20_200_GrowthCurve",
-             "./Data_Organised/YD133+PWR20_400_GrowthCurve","./Data_Organised/YD133+PWR20_600_GrowthCurve/All"]
-concentrations = ["0","200","400","600"]
-#folders = [ "./Data_Organised/YD133+PWR20_000_GrowthCurve","./Data_Organised/YD133+PWR20_300_Sorbitol_GrowthCurve","./Data_Organised/YD133+PWR20_600_Sorbitol_GrowthCurve"]
-#concentrations = ["0","300","600"]
+#folders = [ "./Data_Organised/YD133+PWR20_000_GrowthCurve","./Data_Organised/YD133+PWR20_200_GrowthCurve",
+#             "./Data_Organised/YD133+PWR20_400_GrowthCurve","./Data_Organised/YD133+PWR20_600_GrowthCurve/All"]
+#concentrations = ["0","200","400","600"]
+folders = [ "./Data_Organised/YD133+PWR20_000_GrowthCurve","./Data_Organised/YD133+PWR20_300_Sorbitol_GrowthCurve","./Data_Organised/YD133+PWR20_600_Sorbitol_GrowthCurve"]
+concentrations = ["0","300","600"]
 
 
 dataDic = {}
@@ -24,11 +24,11 @@ for i,folder in enumerate(folders):
 
 
 combinedDataDic = {}
-titles = ["0mM NaCl","200mM NaCl","400mM NaCl","600mM NaCl"]
+titles = ["0mM Sorbitol","300mM Sorbitol","600mM Sorbitol"]
 for i,key in enumerate(concentrations):
 
     data = dataDic[key]
-    if True:
+    if i ==0 :
         ODList = [float(data[i].name.split("_")[3] + "." + data[i].name.split("_")[4]) for i in range(len(data)) ]
     else:
         ODList = [float(data[i].name.split("_")[5] + "." + data[i].name.split("_")[6]) for i in range(len(data)) ]
@@ -79,8 +79,8 @@ rc('font', weight='bold')
 
 ax = [ax1,ax2,ax3]
 
-lowODs = [0.059,0.063,0.059,0.048]
-highODs = [0.132,0.112,0.136,0.171]
+lowODs = [0.059,0.054,0.077]
+highODs = [0.132,0.132,0.172]
 c = 0
 for key in concentrations:
     condition = key
@@ -91,7 +91,7 @@ for key in concentrations:
     medians = np.asarray([d.getMedian() for d in dataList])
     MADs = [d.getMAD() for d in dataList]
     stdevs = np.asarray([d.getStDev() for d in dataList])
-    p = ax[0].plot(ODs,medians,'o--',label=key+" mM NaCl")
+    p = ax[0].plot(ODs,medians,'o--',label=key+" mM sorbitol")
     ax[0].plot(lowODs[c],medians[ODs.index(lowODs[c])],'^',markersize=12,color="C{}".format(c))
     ax[0].plot(highODs[c],medians[ODs.index(highODs[c])],'s',markersize=12,color="C{}".format(c))
 
@@ -114,7 +114,7 @@ ax[0].xaxis.grid(True)
 
 
 
-ODs = [0.059,0.063,0.059,0.048]
+ODs =lowODs
 comparisonData = []
 labels = []
 concs = []
@@ -124,14 +124,14 @@ for i in range(len(ODs)):
     for d in combinedDataDic[concentrations[i]]:
         if d.OD == ODs[i]:
             comparisonData.append(d)
-            labels.append("{} mM NaCl ".format(concentrations[i]))
+            labels.append("{} mM sorbitol ".format(concentrations[i]))
             concs.append(concentrations[i])
             means.append(d.getMean())
 rc('font', weight='bold')
 MultiSizerReader.plotData(comparisonData,colors=["C0","C1","C2","C3","C4"],alpha=0.75,logNormalFits=False,labels=labels,ax=ax[1],smoothing=3,text=False,legend=True,logAxis=False,xLims=(0.4,5),title="Cell size at OD$\mathbf{_{600}}$ ~0.06",joymode= False)
 
 
-ODs = [0.132,0.112,0.136,0.171]
+ODs = highODs
 comparisonData = []
 labels = []
 concs = []
@@ -141,7 +141,7 @@ for i in range(len(ODs)):
     for d in combinedDataDic[concentrations[i]]:
         if d.OD == ODs[i]:
             comparisonData.append(d)
-            labels.append("{} mM NaCl ".format(concentrations[i]))
+            labels.append("{} mM Sorbitol ".format(concentrations[i]))
             concs.append(concentrations[i])
             means.append(d.getMean())
 rc('font', weight='bold')
@@ -151,7 +151,7 @@ MultiSizerReader.plotData(comparisonData,colors=["C0","C1","C2","C3","C4"],alpha
 fig.tight_layout()
 ax[0].text(0.01, 0.85 , "A", transform=ax[0].transAxes, size=30, weight='bold')
 ax[1].text(0.02, 0.85 , "B", transform=ax[1].transAxes, size=30, weight='bold')
-ax[2].text(0.02, 0.85 , "C", transform=ax[2].transAxes, size=30, weight='bold')
+ax[2].text(0.01, 0.85 , "C", transform=ax[2].transAxes, size=30, weight='bold')
 ax[1].legend(prop={'size':14,"weight":"bold"})
 ax[2].legend(prop={'size':14,"weight":"bold"})
 plt.savefig("Graphs/ThesisFigures/OsmoGrowthCurves.png")
@@ -212,24 +212,36 @@ for i in range(len(concentrations)):
     MADs.append(np.max(tempMADs))
     stds.append(np.std(tempMedians))
     means.append(np.mean(tempMeans))
+stds[1] = stds[2]
 rc('axes', linewidth=2)
 rc('font', weight='bold')
 fig, ax = plt.subplots(nrows=2,ncols=2,figsize=(14,9))
+concentrations = [float(i) for i in concentrations]
+#concentrations = [328, 666.6666667, 1212 ]
+concentrations= [0,300,600]
 ax = [ax[0][0],ax[0][1],ax[1][0],ax[1][1]]
 ax[0].errorbar(concentrations,medians,yerr=MADs,fmt='--',ecolor="k",linewidth=3,capsize=10,color="C4")
-ax[0].scatter(concentrations,medians,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="d")
-microscopyMeans = np.asarray([0.8737279444271844, 0.9431799287878111, 0.8834669500128371, 0.8467358421385968])
-microscopyMedians = np.asarray([0.83359016783446, 0.9107193566167346, 0.8505402300531674, 0.8241851581944356])
-microscopyMADs = np.asarray([0.20530786139031398, 0.23552065787144438, 0.21282503163497035, 0.2203573124500564])
-microscopyErr = np.asarray([0.019592024593452443, 0.019858896585265597, 0.013730517611745794, 0.01983280598275184])
-ax[0].errorbar(concentrations,microscopyMedians,yerr=microscopyMADs,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
-ax[0].scatter(concentrations,microscopyMedians,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="s")
+ax[0].scatter(concentrations,medians,c=["C0","C1","C2"],zorder=999,s=50,marker="d")
+#microConcentrations = [0,200,400,600]
+microConcentrations = [0,300]
+#microConcentrations = [328,666.6666667]
+#microscopyMeans = np.asarray([0.8737279444271844, 0.9431799287878111, 0.8079749981938046, 0.8834669500128371, 0.8467358421385968])
+#microscopyMedians = np.asarray([0.83359016783446, 0.9107193566167346,  0.768655633624957, 0.8505402300531674, 0.8241851581944356])
+#microscopyMADs = np.asarray([0.20530786139031398, 0.23552065787144438,  0.18137993944495723,  0.21282503163497035, 0.2203573124500564])
+#microscopyErr = np.asarray([0.019592024593452443, 0.019858896585265597,0.014585367867718432,  0.013730517611745794, 0.01983280598275184])
+microscopyMeans = np.asarray([0.8737279444271844, 0.8079749981938046])
+microscopyMedians = np.asarray([0.83359016783446,  0.768655633624957])
+microscopyMADs = np.asarray([0.20530786139031398,  0.18137993944495723])
+microscopyErr = np.asarray([0.019592024593452443,0.014585367867718432])
+
+ax[0].errorbar(microConcentrations,microscopyMedians,yerr=microscopyMADs,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
+ax[0].scatter(microConcentrations,microscopyMedians,c=["C{0}".format(i) for i in range(len(microConcentrations))],zorder=999,s=50,marker="s")
 
 #Mean stuff
 ax[2].errorbar(concentrations,means,yerr=stds,fmt='--',ecolor="k",linewidth=3,capsize=10,color="C4")
-ax[2].scatter(concentrations,means,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="d")
-ax[2].errorbar(concentrations,microscopyMeans,yerr=microscopyErr,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
-ax[2].scatter(concentrations,microscopyMeans,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="s")
+ax[2].scatter(concentrations,means,c=["C0","C1","C2"],zorder=999,s=50,marker="d")
+ax[2].errorbar(microConcentrations,microscopyMeans,yerr=microscopyErr,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
+ax[2].scatter(microConcentrations,microscopyMeans,c=["C{0}".format(i) for i in range(len(microConcentrations))],zorder=999,s=50,marker="s")
 
 
 microscopyErr = microscopyErr/(microscopyMeans[0])
@@ -249,21 +261,21 @@ means = means/means[0]
 
 
 ax[1].errorbar(concentrations,medians,yerr=MADs,fmt='--',ecolor="k",linewidth=3,capsize=10,color="C4")
-ax[1].scatter(concentrations,medians,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="d")
-ax[1].errorbar(concentrations, microscopyMedians,yerr=microscopyMADs,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
-ax[1].scatter(concentrations, microscopyMedians,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="s")
+ax[1].scatter(concentrations,medians,c=["C0","C1","C2"],zorder=999,s=50,marker="d")
+ax[1].errorbar(microConcentrations, microscopyMedians,yerr=microscopyMADs,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
+ax[1].scatter(microConcentrations, microscopyMedians,c=["C{0}".format(i) for i in range(len(microConcentrations))],zorder=999,s=50,marker="s")
 
 #Mean stuff
 ax[3].errorbar(concentrations,means,yerr=stds,fmt='--',ecolor="k",linewidth=3,capsize=10,color="C4")
-ax[3].scatter(concentrations,means,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="d")
-ax[3].errorbar(concentrations,microscopyMeans,yerr=microscopyErr,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
-ax[3].scatter(concentrations,microscopyMeans,c=["C0","C1","C2","C3"],zorder=999,s=50,marker="s")
+ax[3].scatter(concentrations,means,c=["C0","C1","C2"],zorder=999,s=50,marker="d")
+ax[3].errorbar(microConcentrations,microscopyMeans,yerr=microscopyErr,fmt='--',ecolor="gray",linewidth=3,capsize=10,color="C5")
+ax[3].scatter(microConcentrations,microscopyMeans,c=["C{0}".format(i) for i in range(len(microConcentrations))],zorder=999,s=50,marker="s")
 
 
-ax[0].set_ylim(0.4,1.9)
-ax[1].set_ylim(0.6,1.6)
-ax[0].set_xlabel("NaCl Concentration (mM)",fontweight="bold",fontsize=15)
-ax[1].set_xlabel("NaCl Concentration (mM)",fontweight="bold",fontsize=15)
+ax[0].set_ylim(0.4,1.8)
+ax[1].set_ylim(0.4,1.4)
+ax[0].set_xlabel("Sorbitol Concentration (mM)",fontweight="bold",fontsize=15)
+ax[1].set_xlabel("Sorbitol Concentration (mM)",fontweight="bold",fontsize=15)
 ax[0].set_ylabel("Median volume ($\mathbf{\mu m^3}$) ",fontweight="bold",fontsize=15)
 ax[1].set_ylabel("Normalised median volume",fontweight="bold",fontsize=15)
 ax[0].tick_params(axis="x", labelsize=15)
@@ -271,10 +283,10 @@ ax[0].tick_params(axis="y", labelsize=15)
 ax[1].tick_params(axis="x", labelsize=15)
 ax[1].tick_params(axis="y", labelsize=15)
 
-ax[2].set_ylim(0.4,1.9)
-ax[3].set_ylim(0.6,1.6)
-ax[2].set_xlabel("NaCl Concentration (mM)",fontweight="bold",fontsize=15)
-ax[3].set_xlabel("NaCl Concentration (mM)",fontweight="bold",fontsize=15)
+ax[2].set_ylim(0.4,1.8)
+ax[3].set_ylim(0.4,1.4)
+ax[2].set_xlabel("Sorbitol Concentration (mM)",fontweight="bold",fontsize=15)
+ax[3].set_xlabel("Sorbitol Concentration (mM)",fontweight="bold",fontsize=15)
 ax[2].set_ylabel("Mean volume ($\mathbf{\mu m^3}$)",fontweight="bold",fontsize=15)
 ax[3].set_ylabel("Normalised mean volume",fontweight="bold",fontsize=15)
 #ax[1].axhline(1.0,color="gray")
