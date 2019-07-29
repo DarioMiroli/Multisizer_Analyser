@@ -109,6 +109,7 @@ class MultiSizerReader:
                 #cb.ax.yaxis.set_ticks(np.logspace(np.log10(min(groupValues)), np.log10(max(groupValues)), 10))
                 #cb.ax.yaxis.set_ticks([0.01,0.05,0.1,0.5,1.0,2.0,4.0])
                 cb.ax.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
+                cb.ax.yaxis.set_minor_formatter(matplotlib.ticker.ScalarFormatter())
                 cb.ax.tick_params(axis="y", labelsize=15)
                 cb.ax.set_title(cbarLabel,fontweight="bold",fontsize=15)
 
@@ -184,7 +185,7 @@ class MultiSizerReader:
             item.set_fontsize(20)
         print(logAxis)
         if logAxis:
-            ax.xscale("log")
+            ax.set_xscale("log")
             ax.set_xticks([0.2, 0.5,0.7, 1.0,2.0,4.0,6.0,8.0,10])
         ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
         if diameter:
